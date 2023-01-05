@@ -1,0 +1,21 @@
+{
+  "name": "bpmn-analyzer",
+  "version": "0.1.0",
+  "description": "DSR artifact for detecting dependencies within BPMN model collections",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node bin/index.js"
+  },
+  "keywords": [
+    "bpmn",
+    "faceted navigation"
+  ],
+  "author": "Vincent Nadoll <vincent.nadoll@gmail.com> (https://vinado.de)",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  }
+}
