@@ -13,6 +13,7 @@
   "author": "Vincent Nadoll <vincent.nadoll@gmail.com> (https://vinado.de)",
   "license": "MIT",
   "dependencies": {
+    "commander": "^9.4.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
