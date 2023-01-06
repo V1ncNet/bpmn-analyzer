@@ -10,7 +10,7 @@
     "bpmn",
     "faceted navigation"
   ],
-  "author": "Vincent Nadoll <vincent.nadoll@gmail.com> (https://vinado.de)",
+  "author": "Vincent Nadoll <s3003870@ba-sachsen.de> (https://vinado.de)",
   "license": "MIT",
   "dependencies": {
     "bpmn-moddle": "^7.1.3",
