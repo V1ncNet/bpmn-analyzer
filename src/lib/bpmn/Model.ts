@@ -4,4 +4,5 @@ import { PathLike } from 'fs';
 export type Model = {
   location: PathLike;
   definitions: Definitions;
+  properties: { [key: string]: any };
 }

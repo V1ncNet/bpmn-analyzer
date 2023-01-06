@@ -3,10 +3,11 @@ import fs, { PathLike } from 'fs';
 import { resolve } from 'path';
 import { Model } from '../bpmn';
 import { ApplicationProperties } from '../config';
+import { EnrichmentService } from '../enrichment';
 
 export class ProcessImporter {
 
-  constructor(private _properties: ApplicationProperties) { }
+  constructor(private _properties: ApplicationProperties, private _enrichmentService: EnrichmentService) { }
 
   async import(): Promise<Model[]> {
     const bpmnFiles = await this.readBpmnFiles(this._properties.basePath);
@@ -15,10 +16,14 @@ export class ProcessImporter {
       const bpmn = await fs.promises.readFile(location, { encoding: 'utf8' });
       const definitions = await moddle.fromXML(bpmn);
 
-      return {
+      const model = {
         location,
         definitions,
-      } as Model
+        properties: {}
+      } as Model;
+
+      await this._enrichmentService.enrich(model);
+      return model;
     });
 
     return Promise.all(models);
