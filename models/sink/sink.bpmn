@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0gktdma" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <bpmn:process id="Process_01mnlhr" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0oy2x4z</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0oy2x4z" sourceRef="StartEvent_1" targetRef="Activity_06ucwzl" />
+    <bpmn:sequenceFlow id="Flow_00j6vz8" sourceRef="Activity_06ucwzl" targetRef="Event_075xyup" />
+    <bpmn:sequenceFlow id="Flow_0tadkle" sourceRef="Event_0h6dqh1" targetRef="Activity_06ucwzl" />
+    <bpmn:startEvent id="Event_0h6dqh1">
+      <bpmn:outgoing>Flow_0tadkle</bpmn:outgoing>
+      <bpmn:signalEventDefinition id="SignalEventDefinition_1mff85n" signalRef="Signal_0i8vo7u" />
+    </bpmn:startEvent>
+    <bpmn:manualTask id="Activity_06ucwzl" name="Käsekuchen essen">
+      <bpmn:incoming>Flow_0oy2x4z</bpmn:incoming>
+      <bpmn:incoming>Flow_0tadkle</bpmn:incoming>
+      <bpmn:outgoing>Flow_00j6vz8</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:endEvent id="Event_075xyup">
+      <bpmn:incoming>Flow_00j6vz8</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1nm3t0r" messageRef="Message_2m7d9af" />
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmn:signal id="Signal_0i8vo7u" name="KäsekuchenSignal" />
+  <bpmn:message id="Message_2m7d9af" name="AufgegessenEvent" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_01mnlhr">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0zfkl1m_di" bpmnElement="Event_0h6dqh1">
+        <dc:Bounds x="179" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kwizj1_di" bpmnElement="Activity_06ucwzl">
+        <dc:Bounds x="290" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0scjvmu_di" bpmnElement="Event_075xyup">
+        <dc:Bounds x="432" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0oy2x4z_di" bpmnElement="Flow_0oy2x4z">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="243" y="97" />
+        <di:waypoint x="243" y="130" />
+        <di:waypoint x="290" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00j6vz8_di" bpmnElement="Flow_00j6vz8">
+        <di:waypoint x="390" y="130" />
+        <di:waypoint x="432" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tadkle_di" bpmnElement="Flow_0tadkle">
+        <di:waypoint x="215" y="160" />
+        <di:waypoint x="243" y="160" />
+        <di:waypoint x="243" y="130" />
+        <di:waypoint x="290" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
