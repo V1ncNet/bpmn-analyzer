@@ -13,8 +13,6 @@ export class Application {
   private static _selector: InteractiveFacetSelector;
 
   static async run(properties: ApplicationProperties) {
-    console.log('started w/ properties', properties);
-
     Application._properties = properties;
     Application._enrichmentService = new EnrichmentService()
     Application._importer = new ProcessImporter(this._properties, this._enrichmentService);
@@ -24,5 +22,7 @@ export class Application {
     const models = await this._importer.import();
     const facets = this._facetExtractor.extract(models);
     const selected = await this._selector.filter(facets);
+
+    console.log(JSON.stringify(selected, null, '  '));
   }
 }
