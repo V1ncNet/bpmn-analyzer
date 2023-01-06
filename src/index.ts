@@ -6,19 +6,19 @@ import { Application } from './app';
 import { ApplicationProperties } from './lib/config';
 
 async function main() {
-  const programm = new Command();
+  const program = new Command();
 
-  programm
+  program
     .name('bpmn-analyzer')
     .description('CLI zur Analyse von Beziehungen und Abhängigkeiten zwischen BPMN-Modellen');
 
-  programm
+  program
     .option('-p, --path <pfad>', 'Speicherort der BPMN-Modellen', './')
     .option('-r, --recursive', 'Konfiguriert, ob [pfad] rekursiv durchsucht werden soll');
 
-  programm.parse();
+  program.parse();
 
-  const options = programm.opts();
+  const options = program.opts();
   const basePath = resolve(options['path']);
 
   const properties: ApplicationProperties = {
