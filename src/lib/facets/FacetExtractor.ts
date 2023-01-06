@@ -4,8 +4,8 @@ import { Model } from '../bpmn';
 import { AssignedValue } from './AssignedValue';
 import { Classification } from './Classification';
 import * as root from './classification.json';
-import { EnrichedFacet } from './EnrichedFacet';
 import { Facet } from './Facet';
+import { PopulatedFacet } from './PopulatedFacet';
 import { Value } from './Value';
 
 export class FacetExtractor {
@@ -16,7 +16,7 @@ export class FacetExtractor {
     this._classification = root.classification as Classification;
   }
 
-  extract(models: Model | Model[]): EnrichedFacet[] {
+  extract(models: Model | Model[]): PopulatedFacet[] {
     return this._classification.facets.map(facet => {
       const values = facet.values.map(value => this.assign(models, value, facet));
       return { id: facet.id, name: facet.name, values };
