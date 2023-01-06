@@ -1,7 +1,7 @@
 {
   "name": "bpmn-analyzer",
   "version": "0.1.0",
-  "description": "DSR artifact for detecting dependencies within BPMN model collections",
+  "description": "DSR artifact for analyzing BPMN files using faceted navigation",
   "scripts": {
     "build": "tsc -p .",
     "start": "ts-node src/index.ts"
