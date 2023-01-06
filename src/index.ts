@@ -10,7 +10,7 @@ async function main() {
 
   programm
     .name('bpmn-analyzer')
-    .description('CLI for analying relationships and dependecies between BPMN models');
+    .description('CLI zur Analyse von Beziehungen und Abhängigkeiten zwischen BPMN-Modellen');
 
   const options = programm.opts();
   const [path] = programm.args;
