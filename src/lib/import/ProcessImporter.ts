@@ -30,10 +30,21 @@ export class ProcessImporter {
   }
 
   private async readBpmnFiles(location: PathLike): Promise<string[]> {
-    return (await fs.promises.readdir(location, { withFileTypes: true }))
-      .filter(dirent => !dirent.isDirectory())
-      .map(dirent => dirent.name)
+    return (this._properties.recursive
+      ? (await this.getFiles(location))
+      : (await fs.promises.readdir(location, { withFileTypes: true }))
+        .filter(dirent => !dirent.isDirectory())
+        .map(dirent => dirent.name))
       .filter(filename => filename.endsWith('.bpmn'))
       .map(filename => resolve(String(location), filename));
+  }
+
+  private async getFiles(location: PathLike) {
+    const dirents = await fs.promises.readdir(location, { withFileTypes: true });
+    const files: any = await Promise.all(dirents.map((dirent) => {
+      const res = resolve(String(location), dirent.name);
+      return dirent.isDirectory() ? this.getFiles(res) : res;
+    }));
+    return Array.prototype.concat(...files);
   }
 }
