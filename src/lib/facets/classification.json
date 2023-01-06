@@ -1,0 +1,140 @@
+{
+  "classification": {
+    "facets": [
+      {
+        "id": "bpmn:StartEvent",
+        "name": "Start Event",
+        "values": [
+          {
+            "id": "@default",
+            "name": "Start Event"
+          },
+          {
+            "id": "bpmn:SignalEventDefinition",
+            "name": "Signal Start Event"
+          },
+          {
+            "id": "bpmn:MessageEventDefinition",
+            "name": "Message Start Event"
+          },
+          {
+            "id": "bpmn:TimerEventDefinition",
+            "name": "Timer Start Event"
+          },
+          {
+            "id": "bpmn:ConditionalEventDefinition",
+            "name": "Conditional Start Event"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:EndEvent",
+        "name": "End Event",
+        "values": [
+          {
+            "id": "@default",
+            "name": "End Event"
+          },
+          {
+            "id": "bpmn:SignalEventDefinition",
+            "name": "Signal End Event"
+          },
+          {
+            "id": "bpmn:MessageEventDefinition",
+            "name": "Message End Event"
+          },
+          {
+            "id": "bpmn:TerminateEndEvent",
+            "name": "Terminate End Event"
+          },
+          {
+            "id": "bpmn:ErrorEndEvent",
+            "name": "Error End Event"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:Task",
+        "name": "Task",
+        "values": [
+          {
+            "id": "@default",
+            "name": "Task"
+          },
+          {
+            "id": "bpmn:SendTask",
+            "name": "Send Task"
+          },
+          {
+            "id": "bpmn:Receivetask",
+            "name": "Receive Task"
+          },
+          {
+            "id": "bpmn:UserTask",
+            "name": "User Task"
+          },
+          {
+            "id": "bpmn:ManualTask",
+            "name": "Manual Task"
+          },
+          {
+            "id": "bpmn:BusinessRuleTask",
+            "name": "Business Rule Task"
+          },
+          {
+            "id": "bpmn:ServiceTask",
+            "name": "Service Task"
+          },
+          {
+            "id": "bpmn:ScriptTask",
+            "name": "Script Task"
+          },
+          {
+            "id": "bpmn:CallTask",
+            "name": "Call Task"
+          },
+          {
+            "id": "bpmn:SubProcess",
+            "name": "Sub Process"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:Gateway",
+        "name": "Gateway",
+        "values": [
+          {
+            "id": "bpmn:ExclusiveGateway",
+            "name": "Exclusive Gateway"
+          },
+          {
+            "id": "bpmn:ParallelGateway",
+            "name": "Parallel Gateway"
+          },
+          {
+            "id": "bpmn:EventBasedGateway",
+            "name": "Event Based Gateway"
+          },
+          {
+            "id": "bpmn:InclusiveGateway",
+            "name": "Inclusive Gateway"
+          }
+        ]
+      },
+      {
+        "id": "data",
+        "name": "Data",
+        "values": [
+          {
+            "id": "bpmn:DataOutputAssociation",
+            "name": "Data Object"
+          },
+          {
+            "id": "bpmn:DataStoreReference",
+            "name": "Data Store"
+          }
+        ]
+      }
+    ]
+  }
+}
