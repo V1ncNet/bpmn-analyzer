@@ -12,9 +12,14 @@ async function main() {
     .name('bpmn-analyzer')
     .description('CLI zur Analyse von Beziehungen und Abhängigkeiten zwischen BPMN-Modellen');
 
+  programm
+    .option('-p, --path <pfad>', 'Speicherort der BPMN-Modellen', './')
+    .option('-r, --recursive', 'Konfiguriert, ob [pfad] rekursiv durchsucht werden soll');
+
+  programm.parse();
+
   const options = programm.opts();
-  const [path] = programm.args;
-  const basePath = resolve(path ?? './');
+  const basePath = resolve(options['path']);
 
   const properties: ApplicationProperties = {
     basePath,
