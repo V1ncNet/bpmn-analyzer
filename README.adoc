@@ -1,0 +1,54 @@
+= bpmn-analyzer: Anwenderdokumentation
+Vincent Nadoll <s3003870@ba-sachsen.de>
+v0.1.0
+:lang: de
+:source-highlighter: highlight.js
+:doctype: article
+
+Dieses Projekt ist der Prototyp zur Bachelorarbeit _Designorientierte Herangehensweise zum Entwurf eines Prototypen zur Erkennung von Abhängigkeiten zwischen Geschäftsprozessmodellen_ von Vincent Nadoll.
+
+---
+
+Der Prototyp ist quelloffen und unter <https://github.com/V1ncNet/bpmn-analyzer> auf GitHub verfügbar.
+
+== Voraussetzungen
+
+Zum Ausführen des Programms wird die _Node.js_ Laufzeitumgebung benötigt. Diese ist plattformunabhängig und kann somit auf den gängigen Betriebssystemen installiert werden. Entwicklung und Tests fanden mit der Long Term Support (LTS)footnote:[Stand 06.01.2023]-Version v16.x statt. Es ist nicht garantiert, dass das Programm mit früheren oder älteren _Node.js_-Versionen funktioniert.
+
+Die Installationsroutine von _Node.js_ legt bei der Installation ein Programm ab, dass im Terminal verwendet wird. Die erfolgreiche Installation und die Version kann mit `node --version` geprüft werden.
+
+---
+
+Der Prototyp bedarf keiner konventionellen Installation, sondern wird an Ort und Stelle ausgeführt. Vor der Nutzung sollte daher zum Verzeichnis des Prototyps navigiert werden. Dafür muss der Dateipfad ermittelt werden, unter dem das Programm abgelegt wurde. Mit dem `cd`-Befehl wird im Anschluss in das richtige Verzeichnis navigiert.
+
+[source#lst:ChangeDirectory,bash]
+----
+cd <verzeichnis>
+----
+
+== Benutzung
+
+Das Programm ist ein Command Line Interface (CLI). Das heißt, dass die Interaktionen mit dem Programm ausschließliche im Terminal stattfinden. Für die Analyse wird das Programm direkt beim Start konfiguriert. Dafür stehen zwei Optionen zur Verfügung.
+
+----
+-p, --path [pfad]   Speicherort der BPMN-Modellen (default: './')
+-r, --recursive     Konfiguriert, ob [path] rekursiv durchsucht werden soll
+----
+
+So weiß das Programm, wo die Prozessmodelle liegen. Für eine ausführliche Hilfe wird beim Start die Option `+--help+` angegeben.
+
+Zum Starten des Prototyps wird der folgende Befehl auf der Konsole ausgeführt.
+
+[source#lst:StartCommand,bash]
+----
+node bin/index.js -p [pfad] <1>
+----
+<1> Statt `+[pfad]+` muss der korrekte Speicherort auf dem Rechner angegeben werden.
+
+Das Programm indexiert alle Business Process Modelling and Notation (BPMN)-Dateien und wendet eine vorkonfigurierte Facettenklassifikation auf die Elemente der Prozessmodelle an. Daraufhin präsentiert das Programm eine Liste an Facetten und deren Werte an. Mithilfe der Pfeiltasten wird durch die Liste navigiert. Die Werte können frei gewählt werden und werden mit der Leertaste zur Auswahl hinzugefügt. Wenn die gewünschten Werte ausgewählt wurden, wird die Auswahl mit der Enter-Taste bestätigt. Das Programm filtert daraufhin nach den ausgewählten Werten und listet die geeigneten Resultate im JavaScript Object Notation (JSON)-Format auf. Ob die Facetten angezeigt werden, hängt davon ab, ob ein geeigneter Wert bei der Indexierung gefunden wurde.
+
+== Fehlerbehebung
+
+* Werden in der Facettenauswahl keine Werte angezeigt, befinden sich in dem angegebenen Ordner keine Dateien, die auf `.bpmn` enden. Mit der Option `+-p [pfad]+` kann ein Systemverzeichnis referenziert werden.
+* Scheint das Programm nicht mehr zu reagieren, kann der Prozess mit `STRG-C`/`control-C` abgebrochen werden. Es werden keine Zwischenergebnisse angeboten.
+* Wird beim Aufruf von `node` der Fehler angezeigt, dass das Programm nicht gefunden wurdefootnote:[z. B. command not found], dann sollte das Terminal neu gestartet werden. Bleibt der Fehler bestehen, kann auch die Installation von _Node.js_ fehlerhaft sein und sollte überprüft und gegebenenfalls neu installiert werden.
