@@ -2,6 +2,16 @@
   "classification": {
     "facets": [
       {
+        "id": "bpmn:Signal",
+        "name": "Signal",
+        "values": []
+      },
+      {
+        "id": "bpmn:Message",
+        "name": "Message",
+        "values": []
+      },
+      {
         "id": "bpmn:StartEvent",
         "name": "Start Event",
         "values": [
