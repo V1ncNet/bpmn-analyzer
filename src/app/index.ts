@@ -1,3 +1,4 @@
+import { Model } from '../lib/bpmn';
 import { ApplicationProperties } from '../lib/config';
 import { EnrichmentService } from '../lib/enrichment';
 import { FacetExtractor } from '../lib/facets';
@@ -12,8 +13,8 @@ export class Application {
   private static _facetExtractor: FacetExtractor;
   private static _selector: InteractiveFacetSelector;
 
-  static async run(properties: ApplicationProperties) {
-    Application._properties = properties;
+  static async run(applicationProperties: ApplicationProperties) {
+    Application._properties = applicationProperties;
     Application._enrichmentService = new EnrichmentService()
     Application._importer = new ProcessImporter(this._properties, this._enrichmentService);
     Application._facetExtractor = new FacetExtractor();
@@ -23,6 +24,22 @@ export class Application {
     const facets = this._facetExtractor.extract(models);
     const selected = await this._selector.filter(facets);
 
-    console.log(JSON.stringify(selected, null, '  '));
+    const result = selected
+      .flatMap(selection => selection.values.flatMap(value => value.locations))
+      .map(location => models.find(model => model.location === location))
+      .map(model => {
+        const { definitions, ...result } = model as Model;
+        return result;
+      });
+
+    console.log(JSON.stringify(this.uniqBy(result, model => String(model.location)), null, '  '));
+  }
+
+  private static uniqBy<T>(array: T[], key: (item: T) => string) {
+    const seen: any = {};
+    return array.filter(item => {
+      const k = key(item);
+      return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+    })
   }
 }
