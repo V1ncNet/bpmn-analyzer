@@ -12,6 +12,11 @@
         "values": []
       },
       {
+        "id": "bpmn:CallableElement",
+        "name": "Callable Elements",
+        "values": []
+      },
+      {
         "id": "bpmn:StartEvent",
         "name": "Start Event",
         "values": [

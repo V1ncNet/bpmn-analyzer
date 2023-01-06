@@ -1,4 +1,4 @@
-import { CatchEvent, Message, Process, Signal, ThrowEvent } from 'bpmn-moddle';
+import { CallActivity, CatchEvent, Message, Process, Signal, ThrowEvent } from 'bpmn-moddle';
 import { PathLike } from 'fs';
 import { Model } from '../bpmn';
 import { AssignedValue } from './AssignedValue';
@@ -20,8 +20,9 @@ export class FacetExtractor {
     return this._classification.facets.map(facet => {
       const signals: AssignedValue[] = this.extractSignals(facet, models);
       const messages: AssignedValue[] = this.extractMessages(facet, models);
+      const callableElements: AssignedValue[] = this.extractCalledElements(facet, models);
       const values = facet.values.map(value => this.assign(models, value, facet));
-      return { id: facet.id, name: facet.name, values: [...signals, ...messages, ...values] };
+      return { id: facet.id, name: facet.name, values: [...signals, ...messages, ...callableElements, ...values] };
     });
   }
 
@@ -73,6 +74,43 @@ export class FacetExtractor {
         });
     }
     return messages;
+  }
+
+  private extractCalledElements(facet: Facet, models: Model | Model[]): AssignedValue[] {
+    const callableElements: AssignedValue[] = [];
+    if (facet.id !== "bpmn:CallableElement") {
+      return callableElements;
+    }
+
+    ((models instanceof Array) ? models : [models])
+      .flatMap(model => {
+        const elements: any[] = model.definitions.rootElement.rootElements;
+        const process: Process = elements.find(element => element.$type === 'bpmn:Process');
+        const flowElements = process.flowElements;
+
+        return flowElements
+          .filter(element => element.$type === 'bpmn:CallActivity')
+          .map(element => (element as CallActivity))
+          .forEach(activity => callableElements.push({
+            id: activity.calledElement,
+            name: activity.calledElement,
+            locations: [model.location],
+          }))
+      });
+
+    ((models instanceof Array) ? models : [models])
+      .flatMap(model => {
+        const elements: any[] = model.definitions.rootElement.rootElements;
+        const process: Process = elements.find(element => element.$type === 'bpmn:Process');
+        const callable = process.id;
+
+        const existing = callableElements.find(callableElement => callableElement.id === callable);
+        if (existing) {
+          existing.locations.push(model.location);
+        }
+      });
+
+    return callableElements;
   }
 
   private assign(models: Model | Model[], value: Value, facet: Facet): AssignedValue {
