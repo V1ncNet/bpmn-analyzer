@@ -23,7 +23,7 @@ async function main() {
 
   const properties: ApplicationProperties = {
     basePath,
-    recursice: options['recursive'] || false,
+    recursive: options['recursive'] || false,
   };
 
   await Application.run(properties);
