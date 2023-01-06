@@ -57,8 +57,10 @@ declare namespace BPMNModdle {
     } | undefined;
   }
 
-  // tslint:disable-next-line:no-empty-interface
-  interface RootElement extends BaseElement { }
+  interface RootElement extends BaseElement {
+    rootElements: RootElement[]
+  }
+
   interface Interface extends RootElement {
     name: string;
     operations: Operation[];
@@ -675,7 +677,7 @@ declare namespace BPMNModdle {
     typeLanguage: string;
     imports: Import[];
     extensions: Extension[];
-    rootElements: RootElement[];
+    rootElement: RootElement;
     diagrams: BPMNDiagram;
     er: string;
     relationship: Relationship[];
