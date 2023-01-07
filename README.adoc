@@ -45,6 +45,12 @@ node bin/index.js -p [pfad] <1>
 ----
 <1> Statt `+[pfad]+` muss der korrekte Speicherort auf dem Rechner angegeben werden.
 
+.Beispielaufruf aller Testmodelle
+[source#lst:Example,bash]
+----
+node bin/index -p models/ -r
+----
+
 Das Programm indexiert alle Business Process Modelling and Notation (BPMN)-Dateien und wendet eine vorkonfigurierte Facettenklassifikation auf die Elemente der Prozessmodelle an. Daraufhin präsentiert das Programm eine Liste an Facetten und deren Werte an. Mithilfe der Pfeiltasten wird durch die Liste navigiert. Die Werte können frei gewählt werden und werden mit der Leertaste zur Auswahl hinzugefügt. Wenn die gewünschten Werte ausgewählt wurden, wird die Auswahl mit der Enter-Taste bestätigt. Das Programm filtert daraufhin nach den ausgewählten Werten und listet die geeigneten Resultate im JavaScript Object Notation (JSON)-Format auf. Ob die Facetten angezeigt werden, hängt davon ab, ob ein geeigneter Wert bei der Indexierung gefunden wurde.
 
 == Fehlerbehebung
