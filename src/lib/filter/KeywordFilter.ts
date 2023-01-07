@@ -5,7 +5,7 @@ export class KeywordFilter {
   public byKeywords(keywords: string[]): (value: Model) => boolean {
     return (model) => {
       const elements = model.definitions.rootElement.rootElements;
-      const candidates = this.find(elements, 'name')
+      const candidates = [...this.find(elements, 'name'), ...this.find(elements, 'text')]
         .flatMap(label => label.split(' '))
         .map(label => label.toLowerCase())
 

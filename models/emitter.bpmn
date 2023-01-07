@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_10jpu8y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
   <bpmn:process id="Process_0dknw8i" isExecutable="true">
-    <bpmn:task id="Activity_0gd9jbr">
+    <bpmn:task id="Activity_0gd9jbr" name="Licht anschalten">
       <bpmn:incoming>Flow_0s1yjd0</bpmn:incoming>
       <bpmn:outgoing>Flow_17ixc27</bpmn:outgoing>
     </bpmn:task>
@@ -15,13 +15,22 @@
       <bpmn:outgoing>Flow_0s1yjd0</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_098zeow" messageRef="Message_3qjad27" />
     </bpmn:startEvent>
+    <bpmn:textAnnotation id="TextAnnotation_0adpbuc">
+      <bpmn:text>Das Licht kann mithilfe eines Sprachbefehls eingeschaltet werden.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_104vmpp" sourceRef="Activity_0gd9jbr" targetRef="TextAnnotation_0adpbuc" />
   </bpmn:process>
   <bpmn:signal id="Signal_05uvtko" name="KäsekuchenSignal" />
   <bpmn:message id="Message_3qjad27" name="GoMessage" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0dknw8i">
+      <bpmndi:BPMNShape id="TextAnnotation_0adpbuc_di" bpmnElement="TextAnnotation_0adpbuc">
+        <dc:Bounds x="370" y="-10" width="100" height="84" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0gd9jbr_di" bpmnElement="Activity_0gd9jbr">
         <dc:Bounds x="270" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1j0o51p_di" bpmnElement="Event_0znglr4">
         <dc:Bounds x="432" y="99" width="36" height="36" />
@@ -29,6 +38,10 @@
       <bpmndi:BPMNShape id="Event_0fo370p_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_104vmpp_di" bpmnElement="Association_104vmpp">
+        <di:waypoint x="356" y="77" />
+        <di:waypoint x="370" y="61" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0s1yjd0_di" bpmnElement="Flow_0s1yjd0">
         <di:waypoint x="215" y="117" />
         <di:waypoint x="270" y="117" />
