@@ -11,6 +11,6 @@ export class EnrichmentService {
   ]
 
   async enrich(model: Model): Promise<void> {
-    this.enrichers.forEach(async (enricher: InformationEnricher) => enricher.call(this, model));
+    this.enrichers.forEach(async enricher => enricher.call(this, model));
   }
 }
