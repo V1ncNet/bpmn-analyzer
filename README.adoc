@@ -28,11 +28,12 @@ cd <verzeichnis>
 
 == Benutzung
 
-Das Programm ist ein Command Line Interface (CLI). Das heißt, dass die Interaktionen mit dem Programm ausschließliche im Terminal stattfinden. Für die Analyse wird das Programm direkt beim Start konfiguriert. Dafür stehen zwei Optionen zur Verfügung.
+Das Programm ist ein Command Line Interface (CLI). Das heißt, dass die Interaktionen mit dem Programm ausschließliche im Terminal stattfinden. Für die Analyse wird das Programm direkt beim Start konfiguriert. Dafür stehen drei Optionen zur Verfügung.
 
 ----
--p, --path [pfad]   Speicherort der BPMN-Modellen (default: './')
--r, --recursive     Konfiguriert, ob [path] rekursiv durchsucht werden soll
+-p, --path <pfad>            Speicherort der BPMN-Modellen (default: "./")
+-r, --recursive              Konfiguriert, ob [pfad] rekursiv durchsucht werden soll
+-s, --search <stichwort...>  Filtert die Eingabe anhand der angegebenen Schlüsselwörter
 ----
 
 So weiß das Programm, wo die Prozessmodelle liegen. Für eine ausführliche Hilfe wird beim Start die Option `+--help+` angegeben.
@@ -52,6 +53,14 @@ node bin/index -p models/ -r
 ----
 
 Das Programm indexiert alle Business Process Modelling and Notation (BPMN)-Dateien und wendet eine vorkonfigurierte Facettenklassifikation auf die Elemente der Prozessmodelle an. Daraufhin präsentiert das Programm eine Liste an Facetten und deren Werte an. Mithilfe der Pfeiltasten wird durch die Liste navigiert. Die Werte können frei gewählt werden und werden mit der Leertaste zur Auswahl hinzugefügt. Wenn die gewünschten Werte ausgewählt wurden, wird die Auswahl mit der Enter-Taste bestätigt. Das Programm filtert daraufhin nach den ausgewählten Werten und listet die geeigneten Resultate im JavaScript Object Notation (JSON)-Format auf. Ob die Facetten angezeigt werden, hängt davon ab, ob ein geeigneter Wert bei der Indexierung gefunden wurde.
+
+Beim Aufruf des Programms kann die Option `+-s <stichwort...>+` verwendet werden, um die Auswahl der Modelle einzuschränken. Es werden nur die Modelle berücksichtigt, welche die konfigurierten Wörter enthalten. Um mehrere Stichwörter anzugeben, wird die Option wiederholt. Groß- und Kleinschreibung hat keinen Einfluss auf das Suchergebnis.
+
+.Beispielaufruf aller Testmodelle mit Stichwortsuche
+[source#lst:Sarch,bash]
+----
+node bin/index -p models/ -r -s event -s machen
+----
 
 == Fehlerbehebung
 

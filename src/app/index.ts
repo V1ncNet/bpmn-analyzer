@@ -2,7 +2,7 @@ import { Model } from '../lib/bpmn';
 import { ApplicationProperties } from '../lib/config';
 import { EnrichmentService } from '../lib/enrichment';
 import { FacetExtractor } from '../lib/facets';
-import { InteractiveFacetSelector } from '../lib/filter';
+import { InteractiveFacetSelector, KeywordFilter } from '../lib/filter';
 import { ProcessImporter } from '../lib/import';
 
 export class Application {
@@ -12,6 +12,7 @@ export class Application {
   private static _importer: ProcessImporter;
   private static _facetExtractor: FacetExtractor;
   private static _selector: InteractiveFacetSelector;
+  private static _keywordFilter: KeywordFilter;
 
   static async run(applicationProperties: ApplicationProperties) {
     Application._properties = applicationProperties;
@@ -19,8 +20,9 @@ export class Application {
     Application._importer = new ProcessImporter(this._properties, this._enrichmentService);
     Application._facetExtractor = new FacetExtractor();
     Application._selector = new InteractiveFacetSelector()
+    Application._keywordFilter = new KeywordFilter();
 
-    const models = await this._importer.import();
+    const models = (await this._importer.import()).filter(this._keywordFilter.byKeywords(this._properties.keywords));
     const facets = this._facetExtractor.extract(models);
     const selected = await this._selector.filter(facets);
 

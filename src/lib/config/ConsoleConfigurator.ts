@@ -15,7 +15,8 @@ export class ConsoleConfigurator {
 
     program
       .option('-p, --path <pfad>', 'Speicherort der BPMN-Modellen', './')
-      .option('-r, --recursive', 'Konfiguriert, ob [pfad] rekursiv durchsucht werden soll');
+      .option('-r, --recursive', 'Konfiguriert, ob [pfad] rekursiv durchsucht werden soll')
+      .option('-s, --search <stichwort...>', 'Filtert die Eingabe anhand der angegebenen Schlüsselwörter');
 
     program.parse();
 
@@ -25,6 +26,7 @@ export class ConsoleConfigurator {
     ConsoleConfigurator.properties = {
       basePath,
       recursive: options['recursive'] || false,
+      keywords: options['search']
     };
   }
 }
