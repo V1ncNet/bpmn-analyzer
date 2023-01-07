@@ -26,7 +26,7 @@ export class ConsoleConfigurator {
     ConsoleConfigurator.properties = {
       basePath,
       recursive: options['recursive'] || false,
-      keywords: options['search']
+      keywords: options['search'] || [],
     };
   }
 }
