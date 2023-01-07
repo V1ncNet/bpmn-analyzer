@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import { PopulatedFacet } from '../facets';
+import { PopulatedFacet } from '.';
 
 export class InteractiveFacetSelector {
 

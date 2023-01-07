@@ -1,8 +1,8 @@
 import { Model } from '../lib/bpmn';
 import { ApplicationProperties } from '../lib/config';
 import { EnrichmentService } from '../lib/enrichment';
-import { FacetExtractor } from '../lib/facets';
-import { InteractiveFacetSelector, KeywordFilter } from '../lib/filter';
+import { FacetExtractor, InteractiveFacetSelector } from '../lib/facets';
+import { KeywordFilter } from '../lib/filter';
 import { ProcessImporter } from '../lib/import';
 
 export class Application {
