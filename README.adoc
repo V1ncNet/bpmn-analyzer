@@ -13,7 +13,7 @@ Der Prototyp ist quelloffen und unter <https://github.com/V1ncNet/bpmn-analyzer>
 
 == Voraussetzungen
 
-Zum Ausführen des Programms wird die _Node.js_ Laufzeitumgebung benötigt. Diese ist plattformunabhängig und kann somit auf den gängigen Betriebssystemen installiert werden. Entwicklung und Tests fanden mit der Long Term Support (LTS)footnote:[Stand 06.01.2023]-Version v16.x statt. Es ist nicht garantiert, dass das Programm mit früheren oder älteren _Node.js_-Versionen funktioniert.
+Zum Ausführen des Programms wird die _Node.js_ Laufzeitumgebung benötigt. Diese ist plattformunabhängig und kann somit auf den gängigen Betriebssystemen installiert werden. Entwicklung und Tests fanden mit der Long Term Support (LTS)footnote:[Stand 06.01.2023]-Version v18.x statt. Es ist nicht garantiert, dass das Programm mit früheren oder älteren _Node.js_-Versionen funktioniert.
 
 Die Installationsroutine von _Node.js_ legt bei der Installation ein Programm ab, dass im Terminal verwendet wird. Die erfolgreiche Installation und die Version kann mit `node --version` geprüft werden.
 
