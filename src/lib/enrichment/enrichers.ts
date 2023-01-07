@@ -23,6 +23,13 @@ export const ProcessIdEnricher: InformationEnricher = async (model: Model) => {
   model.properties['processId'] = process.id;
 }
 
+export const ExecutableFlagEnricher: InformationEnricher = async (model: Model) => {
+  const elements = rootElements(model);
+  const process = findProcessIn(elements);
+
+  model.properties['executable'] = process.isExecutable || false;
+}
+
 function rootElements(model: Model): any[] {
   return model.definitions.rootElement.rootElements;
 }

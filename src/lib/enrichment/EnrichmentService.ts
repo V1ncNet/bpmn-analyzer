@@ -1,5 +1,5 @@
 import { Model } from '../bpmn';
-import { ComplexityEnricher, MtimeEnricher, ProcessIdEnricher } from './enrichers';
+import { ComplexityEnricher, ExecutableFlagEnricher, MtimeEnricher, ProcessIdEnricher } from './enrichers';
 import { InformationEnricher } from './InformationEnricher';
 
 export class EnrichmentService {
@@ -8,6 +8,7 @@ export class EnrichmentService {
     MtimeEnricher,
     ComplexityEnricher,
     ProcessIdEnricher,
+    ExecutableFlagEnricher,
   ]
 
   async enrich(model: Model): Promise<void> {
