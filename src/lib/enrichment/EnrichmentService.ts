@@ -1,14 +1,12 @@
 import { Model } from '../bpmn';
-import { ComplexityEnricher, ExecutableFlagEnricher, MtimeEnricher, ProcessIdEnricher } from './enrichers';
+import { MtimeEnricher, ProcessAttributeEnricher } from './enrichers';
 import { InformationEnricher } from './InformationEnricher';
 
 export class EnrichmentService {
 
   private readonly enrichers: InformationEnricher[] = [
     MtimeEnricher,
-    ComplexityEnricher,
-    ProcessIdEnricher,
-    ExecutableFlagEnricher,
+    ProcessAttributeEnricher,
   ]
 
   async enrich(model: Model): Promise<void> {

@@ -8,25 +8,13 @@ export const MtimeEnricher: InformationEnricher = async (model: Model) => {
   model.properties['mtime'] = stat.mtime;
 }
 
-export const ComplexityEnricher: InformationEnricher = async (model: Model) => {
+export const ProcessAttributeEnricher: InformationEnricher = async (model: Model) => {
   const elements = rootElements(model);
   const process = findProcessIn(elements);
   const flowElements = process.flowElements;
 
   model.properties['complexity'] = flowElements.length;
-}
-
-export const ProcessIdEnricher: InformationEnricher = async (model: Model) => {
-  const elements = rootElements(model);
-  const process = findProcessIn(elements);
-
   model.properties['processId'] = process.id;
-}
-
-export const ExecutableFlagEnricher: InformationEnricher = async (model: Model) => {
-  const elements = rootElements(model);
-  const process = findProcessIn(elements);
-
   model.properties['executable'] = process.isExecutable || false;
 }
 
