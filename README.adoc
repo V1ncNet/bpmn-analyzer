@@ -42,17 +42,17 @@ Zum Starten des Prototyps wird der folgende Befehl auf der Konsole ausgeführt.
 
 [source#lst:StartCommand,bash]
 ----
-node bin/index.js -p [pfad] <1>
+node bin/index.js -p <pfad> <1>
 ----
 <1> Statt `+[pfad]+` muss der korrekte Speicherort auf dem Rechner angegeben werden.
+
+Das Programm indexiert alle Business Process Modelling and Notation (BPMN)-Dateien und wendet eine vorkonfigurierte Facettenklassifikation auf die Elemente der Prozessmodelle an. Daraufhin präsentiert das Programm eine Liste an Facetten und deren Werte an. Mithilfe der Pfeiltasten wird durch die Liste navigiert. Die Werte können frei gewählt werden und werden mit der Leertaste zur Auswahl hinzugefügt. Wenn die gewünschten Werte ausgewählt wurden, wird die Auswahl mit der Enter-Taste bestätigt. Das Programm filtert daraufhin nach den ausgewählten Werten und listet die geeigneten Resultate im JavaScript Object Notation (JSON)-Format auf. Ob die Facetten angezeigt werden, hängt davon ab, ob ein geeigneter Wert bei der Indexierung gefunden wurde.
 
 .Beispielaufruf aller Testmodelle
 [source#lst:Example,bash]
 ----
 node bin/index -p models/ -r
 ----
-
-Das Programm indexiert alle Business Process Modelling and Notation (BPMN)-Dateien und wendet eine vorkonfigurierte Facettenklassifikation auf die Elemente der Prozessmodelle an. Daraufhin präsentiert das Programm eine Liste an Facetten und deren Werte an. Mithilfe der Pfeiltasten wird durch die Liste navigiert. Die Werte können frei gewählt werden und werden mit der Leertaste zur Auswahl hinzugefügt. Wenn die gewünschten Werte ausgewählt wurden, wird die Auswahl mit der Enter-Taste bestätigt. Das Programm filtert daraufhin nach den ausgewählten Werten und listet die geeigneten Resultate im JavaScript Object Notation (JSON)-Format auf. Ob die Facetten angezeigt werden, hängt davon ab, ob ein geeigneter Wert bei der Indexierung gefunden wurde.
 
 Beim Aufruf des Programms kann die Option `+-s <stichwort...>+` verwendet werden, um die Auswahl der Modelle einzuschränken. Es werden nur die Modelle berücksichtigt, welche die konfigurierten Wörter enthalten. Um mehrere Stichwörter anzugeben, wird die Option wiederholt. Groß- und Kleinschreibung hat keinen Einfluss auf das Suchergebnis.
 
