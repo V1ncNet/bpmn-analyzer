@@ -10,6 +10,9 @@
     <bpmn:serviceTask id="Activity_11vgyct" name="Nichts machen">
       <bpmn:incoming>Flow_1ptaf8f</bpmn:incoming>
       <bpmn:outgoing>Flow_13heu1l</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0jtxgyo">
+        <bpmn:targetRef>DataStoreReference_1139bgo</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:serviceTask>
     <bpmn:manualTask id="Activity_1mc68e0" name="Nichts machen">
       <bpmn:incoming>Flow_197jtbb</bpmn:incoming>
@@ -19,6 +22,7 @@
       <bpmn:incoming>Flow_13heu1l</bpmn:incoming>
       <bpmn:terminateEventDefinition id="TerminateEventDefinition_0gz8t4e" />
     </bpmn:endEvent>
+    <bpmn:dataStoreReference id="DataStoreReference_1139bgo" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1mbv1fg">
@@ -34,6 +38,9 @@
       <bpmndi:BPMNShape id="Event_1r24757_di" bpmnElement="Event_0zhr0i9">
         <dc:Bounds x="592" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1139bgo_di" bpmnElement="DataStoreReference_1139bgo">
+        <dc:Bounds x="455" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_197jtbb_di" bpmnElement="Flow_197jtbb">
         <di:waypoint x="215" y="117" />
         <di:waypoint x="270" y="117" />
@@ -45,6 +52,10 @@
       <bpmndi:BPMNEdge id="Flow_13heu1l_di" bpmnElement="Flow_13heu1l">
         <di:waypoint x="530" y="117" />
         <di:waypoint x="592" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0jtxgyo_di" bpmnElement="DataOutputAssociation_0jtxgyo">
+        <di:waypoint x="480" y="157" />
+        <di:waypoint x="480" y="235" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
