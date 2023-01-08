@@ -34,6 +34,8 @@ npm install
 npm run build
 ----
 
+<<<
+
 == Benutzung
 
 Das Programm ist ein Command Line Interface (CLI). Das heißt, dass die Interaktionen mit dem Programm ausschließliche im Terminal stattfinden. Für die Analyse wird das Programm direkt beim Start konfiguriert. Dafür stehen drei Optionen zur Verfügung.
@@ -69,6 +71,8 @@ Beim Aufruf des Programms kann die Option `+-s <stichwort...>+` verwendet werden
 ----
 node bin/index -p models/ -r -s event -s machen
 ----
+
+<<<
 
 == Fehlerbehebung
 
