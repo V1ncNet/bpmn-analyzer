@@ -3,12 +3,12 @@
     "facets": [
       {
         "id": "bpmn:Signal",
-        "name": "Signal",
+        "name": "Signals",
         "values": []
       },
       {
         "id": "bpmn:Message",
-        "name": "Message",
+        "name": "Messages",
         "values": []
       },
       {
@@ -18,15 +18,11 @@
       },
       {
         "id": "bpmn:StartEvent",
-        "name": "Start Event",
+        "name": "Start Events",
         "values": [
           {
             "id": "@default",
             "name": "Start Event"
-          },
-          {
-            "id": "bpmn:SignalEventDefinition",
-            "name": "Signal Start Event"
           },
           {
             "id": "bpmn:MessageEventDefinition",
@@ -37,44 +33,144 @@
             "name": "Timer Start Event"
           },
           {
+            "id": "bpmn:ErrorEventDefinition",
+            "name": "Error Start Event"
+          },
+          {
+            "id": "bpmn:EscalationEventDefinition",
+            "name": "Escalation Start Event"
+          },
+          {
+            "id": "bpmn:CompensationEventDefinition",
+            "name": "Compensation Start Event"
+          },
+          {
             "id": "bpmn:ConditionalEventDefinition",
             "name": "Conditional Start Event"
+          },
+          {
+            "id": "bpmn:SignalEventDefinition",
+            "name": "Signal Start Event"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:IntermediateCatchEvent",
+        "name": "Intermediate Catch Events",
+        "values": [
+          {
+            "id": "@default",
+            "name": "Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:MessageEventDefinition",
+            "name": "Message Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:TimerEventDefinition",
+            "name": "Timer Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:ErrorEventDefinition",
+            "name": "Error Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:EscalationEventDefinition",
+            "name": "Escalation Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:CancelEventDefinition",
+            "name": "Cancel Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:CompensationEventDefinition",
+            "name": "Compensation Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:ConditionalEventDefinition",
+            "name": "Conditional Intermediate Catch Event"
+          },
+          {
+            "id": "bpmn:LinkEventDefinition",
+            "name": "Link Intermediate Catch Event"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:IntermediateThrowEvent",
+        "name": "Intermediate Throw Events",
+        "values": [
+          {
+            "id": "@default",
+            "name": "Intermediate Throw Event"
+          },
+          {
+            "id": "bpmn:MessageEventDefinition",
+            "name": "Message Intermediate Throw Event"
+          },
+          {
+            "id": "bpmn:EscalationEventDefinition",
+            "name": "Escalation Intermediate Throw Event"
+          },
+          {
+            "id": "bpmn:CompensationEventDefinition",
+            "name": "Compensation Intermediate Throw Event"
+          },
+          {
+            "id": "bpmn:LinkEventDefinition",
+            "name": "Link Intermediate Throw Event"
+          },
+          {
+            "id": "bpmn:SignalEventDefinition",
+            "name": "Signal Intermediate Throw Event"
           }
         ]
       },
       {
         "id": "bpmn:EndEvent",
-        "name": "End Event",
+        "name": "End Events",
         "values": [
           {
             "id": "@default",
             "name": "End Event"
           },
           {
-            "id": "bpmn:SignalEventDefinition",
-            "name": "Signal End Event"
-          },
-          {
             "id": "bpmn:MessageEventDefinition",
             "name": "Message End Event"
           },
           {
-            "id": "bpmn:TerminateEndEvent",
-            "name": "Terminate End Event"
-          },
-          {
             "id": "bpmn:ErrorEndEvent",
             "name": "Error End Event"
+          },
+          {
+            "id": "bpmn:EscalationEventDefinition",
+            "name": "Escalation End Event"
+          },
+          {
+            "id": "bpmn:CancelEventDefinition",
+            "name": "Cancel End Event"
+          },
+          {
+            "id": "bpmn:CompensationEventDefinition",
+            "name": "Compensation End Event"
+          },
+          {
+            "id": "bpmn:SignalEventDefinition",
+            "name": "Signal End Event"
+          },
+          {
+            "id": "bpmn:TerminateEventDefinition",
+            "name": "Terminate End Event"
           }
         ]
       },
       {
-        "id": "bpmn:Task",
-        "name": "Task",
+        "id": "bpmn:Activity",
+        "name": "Activities",
         "values": [
           {
-            "id": "@default",
-            "name": "Task"
+            "id": "bpmn:Task",
+            "name": "Abstract Task"
           },
           {
             "id": "bpmn:SendTask",
@@ -116,7 +212,7 @@
       },
       {
         "id": "bpmn:Gateway",
-        "name": "Gateway",
+        "name": "Gateways",
         "values": [
           {
             "id": "bpmn:ExclusiveGateway",
@@ -137,16 +233,74 @@
         ]
       },
       {
-        "id": "data",
+        "id": "custom:Data",
         "name": "Data",
         "values": [
           {
-            "id": "bpmn:DataOutputAssociation",
+            "id": "bpmn:DataInput",
+            "name": "Data Input"
+          },
+          {
+            "id": "bpmn:DataOutput",
+            "name": "Data Output"
+          },
+          {
+            "id": "bpmn:DataObject",
             "name": "Data Object"
           },
           {
-            "id": "bpmn:DataStoreReference",
+            "id": "bpmn:DataStore",
             "name": "Data Store"
+          }
+        ]
+      },
+      {
+        "id": "custom:ConnectinObjects",
+        "name": "Connection Objects",
+        "values": [
+          {
+            "id": "bpmn:SequenceFlow",
+            "name": "Sequence Flow"
+          },
+          {
+            "id": "bpmn:MessageFlow",
+            "name": "Message Flow"
+          },
+          {
+            "id": "bpmn:Association",
+            "name": "Association"
+          },
+          {
+            "id": "bpmn:DataInputAssociation",
+            "name": "Data Input Association"
+          },
+          {
+            "id": "bpmn:DataOutputAssociation",
+            "name": "Data Output Association"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:LaneSet",
+        "name": "Swimlanes",
+        "values": [
+          {
+            "id": "bpmn:Lane",
+            "name": "Lane"
+          }
+        ]
+      },
+      {
+        "id": "bpmn:Artifact",
+        "name": "Artifacts",
+        "values": [
+          {
+            "id": "bpmn:Group",
+            "name": "Group"
+          },
+          {
+            "id": "bpmn:TextAnnotation",
+            "name": "Text Annotation"
           }
         ]
       }
