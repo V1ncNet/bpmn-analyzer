@@ -26,6 +26,14 @@ Der Prototyp bedarf keiner konventionellen Installation, sondern wird an Ort und
 cd <verzeichnis>
 ----
 
+Daraufhin müssen die Abhängigkeiten installiert und die Quelldateien kompiliert werden. Der Node Package Manager (NPM) wird bei der Installation von Node.js ebenfalls installiert. Nachdem in das richtige Verzeichnis navigiert wurde, werden die folgenden Befehle nacheinander in der Konsole ausgeführt.
+
+[source#lst:Install,bash]
+----
+npm install
+npm run build
+----
+
 == Benutzung
 
 Das Programm ist ein Command Line Interface (CLI). Das heißt, dass die Interaktionen mit dem Programm ausschließliche im Terminal stattfinden. Für die Analyse wird das Programm direkt beim Start konfiguriert. Dafür stehen drei Optionen zur Verfügung.
